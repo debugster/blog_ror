@@ -1,1 +1,24 @@
-<h1 class="title">Hello, Bloggers!</h1>
+<div class="container">
+  <h1>Recent Posts</h1>
+
+  <% @posts.each do |post| %>
+    <div class="card mt-4 mb-4">
+      <div class="card-header">
+        <span class="h4">
+          <%= post.title %>
+        </span>
+        <span class="float-right">
+<!--          Posted at <%#= post.created_at %>-->
+<!--          Posted at <%#= I18n.l(post.created_at, format: :short, locale: :'en') %>-->
+          Posted at <%= post.created_at.localtime.strftime("%e %b, %Y %l:%M %p") %>
+        </span>
+      </div>
+      <div class="card-body">
+        <p class="card-text lead" id="post-content">
+          <%= post.content %>
+        </p>
+        <%= link_to 'Read', post, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
