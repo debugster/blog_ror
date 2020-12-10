@@ -11,7 +11,7 @@ require("channels")
 import 'bootstrap'
 
 document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltop"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
 
