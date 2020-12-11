@@ -54,6 +54,6 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: blog_production
+  database: <%= ENV['DATABASE_URL'] %>
   username: blog
   password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
