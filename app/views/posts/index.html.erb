@@ -6,7 +6,7 @@
     <div class="card mt-4 mb-4">
       <div class="card-header">
         <span class="h4">
-          <%= post.title %>
+          <strong><%= post.title %></strong>
         </span>
         <span class="float-right">
           Updated at <%= post.updated_at.localtime.strftime("%e %b, %Y %l:%M %p") %>
@@ -17,6 +17,9 @@
           <%= post.content %>
         </p>
         <%= link_to 'Read', post, class: "btn btn-primary" %>
+      </div>
+      <div class="card-header">
+        <h4><%= pluralize(post.comments.count, "comment") %></h4>
       </div>
     </div>
   <% end %>

@@ -34,3 +34,31 @@
     </div>
   </div>
 </div>
+
+<hr>
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-12">
+<!--      <h3><strong><%#= @post.comments.count %></strong> comments</h3>-->
+      <h3><strong><%= pluralize(@post.comments.count, "comment") %></strong></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= render @post.comments %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-12">
+      <h3>Leave a reply</h3>
+    </div>
+    <div class="col-12">
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+</div>
