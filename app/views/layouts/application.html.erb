@@ -13,11 +13,15 @@
   <body>
   <%= render "layouts/navbar" %>
 
-  <div class="container" id="main-container">
+    <div class="container" id="main-container">
       <h1>
         <%= yield :page_title %>
       </h1>
     </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
