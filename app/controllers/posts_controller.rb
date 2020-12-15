@@ -24,6 +24,10 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if permit_to_edit_and_delete?
+    else
+      redirect_to @post
+    end
   end
 
   def update
@@ -35,9 +39,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-
-    redirect_to posts_path
+    if permit_to_edit_and_delete?
+      @post.destroy
+      redirect_to posts_path
+    else
+      redirect_to @post
+    end
   end
 
   private
@@ -48,6 +55,17 @@ class PostsController < ApplicationController
 
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def permit_to_edit_and_delete?
+    @post = Post.find(params[:id])
+    @user_id = current_user.id
+
+    if @post.user_id == @user_id
+      true
+    else
+      false
+    end
   end
 
 end
