@@ -5,12 +5,37 @@
   <% @posts.each do |post| %>
     <div class="card mt-4 mb-4">
       <div class="card-header">
-        <span class="h4">
-          <strong><%= post.title %></strong>
-        </span>
-        <span class="float-right">
-          Updated at <%= post.updated_at.localtime.strftime("%e %b, %Y %l:%M %p") %>
-        </span>
+<!--        <span class="h4">-->
+<!--          <strong><%#= post.title %></strong>-->
+<!--        </span>-->
+<!--        <span class="float-right">-->
+<!--          Updated at <%#= post.updated_at.localtime.strftime("%e %b, %Y %l:%M %p") %>-->
+<!--        </span>-->
+
+        <div class="row">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-12">
+                <span class="h4">
+                  <strong><%= post.title %></strong>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <span class="h5">
+                  <%= post.user.name %> (@<%= post.user.handle %>)
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 float-right">
+            <span class="float-right">
+              Updated <%= time_ago_in_words(post.updated_at.localtime) %> ago
+            </span>
+          </div>
+        </div>
+
       </div>
       <div class="card-body">
         <p class="card-text lead text-justify" id="post-content">

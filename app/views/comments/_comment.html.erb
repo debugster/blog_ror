@@ -2,7 +2,8 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><%= comment.user.name %> (@<%= comment.user.handle %>)</h5>
+        <h5 class="card-title"><strong><%= comment.user.name %> (@<%= comment.user.handle %>)</strong></h5>
+        <p class="fs-6 fw-light"><%= time_ago_in_words(comment.updated_at.localtime) %> ago</p>
         <p class="card-text"><%= comment.comment_text %></p>
         <%= link_to 'Delete', [comment.post, comment], method: :delete, class: "btn btn-danger float-right",
                     data: { confirm: "Are you sure?" }
