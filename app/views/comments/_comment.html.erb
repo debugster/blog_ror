@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">@<%= comment.name %></h5>
+        <h5 class="card-title">@<%= comment.user.handle %></h5>
         <p class="card-text"><%= comment.comment_text %></p>
         <%= link_to 'Delete', [comment.post, comment], method: :delete, class: "btn btn-danger float-right",
                     data: { confirm: "Are you sure?" }
