@@ -33,6 +33,17 @@
 <!--    </form>-->
     <ul class="navbar-nav">
       <% if user_signed_in? %>
+        <li class="nav-item dropdown mr-2">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.name %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Profile", root_path, class: 'dropdown-item' %>
+            <%= link_to "Update profile", edit_user_registration_path, class: 'dropdown-item' %>
+<!--            <div class="dropdown-divider"></div>-->
+<!--            <a class="dropdown-item" href="#">Something else here</a>-->
+          </div>
+        </li>
         <li class="nav-item">
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link btn btn-outline-danger' %>
         </li>
